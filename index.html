@@ -70,22 +70,33 @@
     }
 
     /* Mobile Navigation */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
       .navbar-toggle {
         display: block;
-        position: absolute;
-        left: 1rem;
-        top: 0.7rem;
+        position: static;
+        order: 1;
       }
 
       .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         display: none;
-        background: var(--main-color);
-        margin-top: 0.5rem;
-        border-radius: 8px;
-        padding: 0.5rem 0;
+        background: var(--dark-color);
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
       }
 
       .nav-links.show {
@@ -93,9 +104,20 @@
       }
 
       .nav-links a {
-        width: 90%;
+        width: 100%;
         text-align: center;
-        margin: 0.2rem 0;
+        margin: 0;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a:hover {
+        background: var(--main-color);
       }
     }
 
@@ -235,5 +257,6 @@
 
 </body>
 </html>
+
 
 
