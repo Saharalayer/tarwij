@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ترويج - أنشئ متجرك الآن</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #003049;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 20px;
+      font-size: 1rem;
+    }
+
+    .navbar nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      color: #f77f00;
+    }
+
+    .navbar .cta {
+      background-color: #f77f00;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to bottom right, #0077b6, #ffffff);
+      padding: 80px 20px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero-text {
+      flex: 1 1 500px;
+      text-align: right;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      color: #003049;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .store-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .store-form input {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: 2px solid #0077b6;
+      border-radius: 8px;
+      width: 250px;
+    }
+
+    .store-form button {
+      padding: 12px 24px;
+      background-color: #f77f00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .store-form button:hover {
+      background-color: #d65a00;
+    }
+
+    .preview {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .preview span {
+      font-weight: bold;
+      color: #003049;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003049;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .store-form {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">ترويج</div>
+    <nav>
+      <a href="#features">الميزات</a>
+      <a href="#plans">الخطط</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <a href="#hero" class="cta">ابدأ متجرك الآن</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>أنشئ متجرك وابدأ الترويج</h1>
+        <p>منصة عربية لإنشاء متجر إلكتروني احترافي بسهولة وبدون خبرة تقنية</p>
+        <form class="store-form" onsubmit="createStore(event)">
+          <input type="text" id="storeName" placeholder="أدخل اسم متجرك (بالإنجليزية أو العربية)" required />
+          <button type="submit">ابدأ الآن</button>
+        </form>
+        <p class="preview">سيتم إنشاء متجرك على: <span id="previewUrl">youstore.tarwij.ma</span></p>
+      </div>
+      <div class="hero-image">
+        <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="متجر إلكتروني" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ترويج. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const input = document.getElementById("storeName");
+    const preview = document.getElementById("previewUrl");
+
+    input.addEventListener("input", () => {
+      const name = input.value.trim().replace(/\s+/g, "-").toLowerCase();
+      preview.textContent = name ? `${name}.tarwij.ma` : "youstore.tarwij.ma";
+    });
+
+    function createStore(e) {
+      e.preventDefault();
+      const storeName = input.value.trim().replace(/\s+/g, "-").toLowerCase();
+      if (storeName) {
+        window.location.href = `https://${storeName}.tarwij.ma`;
+      }
+    }
+  </script>
+
+</body>
+</html>
