@@ -34,26 +34,69 @@
       font-weight: bold;
     }
 
-    nav {
+    /* Navigation */
+    .navbar {
       background: var(--dark-color);
+      padding: 0.7rem 1rem;
+      position: relative;
+    }
+
+    .navbar-toggle {
+      font-size: 1.5rem;
+      color: var(--white);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
+    .nav-links {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 0.7rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
 
-    nav a {
+    .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ffd700;
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 600px) {
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        top: 0.7rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        background: var(--main-color);
+        margin-top: 0.5rem;
+        border-radius: 8px;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 90%;
+        text-align: center;
+        margin: 0.2rem 0;
+      }
     }
 
     .contact-icons {
@@ -120,22 +163,6 @@
     button:hover {
       background: var(--dark-color);
     }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .form-section {
-        margin: 1rem;
-        padding: 1rem;
-      }
-
-      button {
-        font-size: 0.95rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -144,11 +171,14 @@
   ترويج ماركت - Tarwij Market
 </header>
 
-<nav>
-  <a href="#">الرئيسية</a>
-  <a href="#">من نحن</a>
-  <a href="#">الاتصال بنا</a>
-</nav>
+<div class="navbar">
+  <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#">الرئيسية</a>
+    <a href="#">من نحن</a>
+    <a href="#">الاتصال بنا</a>
+  </div>
+</div>
 
 <section class="contact-icons">
   <a href="https://wa.me/212600000000" title="واتساب" target="_blank">
@@ -185,6 +215,10 @@
 </section>
 
 <script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+
   document.getElementById('productForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
