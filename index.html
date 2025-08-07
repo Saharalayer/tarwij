@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Language" content="ar">
   <title>ترويج ماركت - Tarwij Market | منصة بيع المنتجات المغربية والعربية</title>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://tarwij.github.io/">
   
   <!-- SEO Meta Tags -->
   <meta name="description" content="ترويج ماركت - منصة مغربية لبيع وترويج المنتجات المحلية والعربية. أرسل منتجك للبيع عبر واتساب بسهولة. منتجات مغربية، موريتانية وأوروبية بأفضل الأسعار.">
   <meta name="keywords" content="ترويج ماركت, بيع منتجات, منتجات مغربية, منتجات موريتانية, تسوق أونلاين, واتساب, تجارة إلكترونية, المغرب, موريتانيا, أوروبا, درهم مغربي, أوقية موريتانية, أورو">
   <meta name="author" content="Tarwij Market">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="Arabic">
   
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="ترويج ماركت - Tarwij Market">
   <meta property="og:description" content="منصة مغربية لبيع وترويج المنتجات المحلية والعربية. أرسل منتجك للبيع عبر واتساب بسهولة.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tarwij.github.io">
+  <meta property="og:url" content="https://tarwij.github.io/">
   <meta property="og:image" content="https://tarwij.github.io/og-image.jpg">
   <meta property="og:locale" content="ar_MA">
   <meta property="og:site_name" content="Tarwij Market">
@@ -66,6 +69,10 @@
       color: var(--white);
       padding: 1rem;
       text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
       font-size: 1.5rem;
       font-weight: bold;
     }
@@ -285,7 +292,7 @@
 <body>
 
 <header>
-  ترويج ماركت - Tarwij Market
+  <h1>ترويج ماركت - Tarwij Market</h1>
 </header>
 
 <div class="navbar">
@@ -339,6 +346,11 @@
 </section>
 
 <script>
+  // Handle www/non-www redirects
+  if (window.location.hostname === 'www.tarwij.github.io') {
+    window.location.replace('https://tarwij.github.io' + window.location.pathname + window.location.search + window.location.hash);
+  }
+
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('show');
   }
