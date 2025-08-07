@@ -1,6 +1,6 @@
 # 🏜️ Tarwij Market
 
-![شعار Tarwij Market](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ4NyUDvqq2kbhtSbLUH9-jjDD9_L-WfLA0A&s)
+![شعار Tarwij Market](img/tarwijfinal.jpg)
 
 **سوق إلكتروني بسيط ومجاني لبيع وشراء المنتجات الجديدة والمستعملة في الصحراء، موريتانيا، وجزر الكناري.**
 
