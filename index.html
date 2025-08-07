@@ -43,6 +43,10 @@
     .contact-icons a img {
       width: 48px;
       height: 48px;
+      transition: transform 0.3s ease;
+    }
+    .contact-icons a:hover img {
+      transform: scale(1.1);
     }
     .form-section {
       padding: 1rem;
@@ -63,9 +67,6 @@
       margin-top: 0.3rem;
       border: 1px solid #ccc;
       border-radius: 4px;
-    }
-    input[type="file"] {
-      border: none;
     }
     button {
       background: #00695c;
@@ -94,11 +95,17 @@
 </nav>
 
 <section class="contact-icons">
-  <a href="https://wa.me/212600000000" title="واتساب">
+  <a href="https://wa.me/212600000000" title="واتساب" target="_blank">
     <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="واتساب">
   </a>
-  <a href="mailto:you@example.com" title="بريد إلكتروني">
-    <img src="https://img.icons8.com/color/48/000000/email.png" alt="بريد إلكتروني">
+  <a href="https://www.snapchat.com/add/tarwij.market" title="سناب شات" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/snapchat.png" alt="سناب شات">
+  </a>
+  <a href="https://www.instagram.com/tarwij.market" title="انستغرام" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="انستغرام">
+  </a>
+  <a href="https://www.tiktok.com/@tarwij.market" title="تيكتوك" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/tiktok--v1.png" alt="تيكتوك">
   </a>
 </section>
 
@@ -117,9 +124,6 @@
     <label for="contact">رقم التواصل أو واتساب</label>
     <input type="text" id="contact" required>
 
-    <label for="images">صور المنتج (حتى 5 صور)</label>
-    <input type="file" id="images" accept="image/*" multiple required>
-
     <button type="submit">إرسال عبر واتساب</button>
   </form>
 </section>
@@ -132,13 +136,12 @@
     const price = document.getElementById('price').value;
     const description = document.getElementById('description').value;
     const contact = document.getElementById('contact').value;
-    const images = document.getElementById('images').files;
 
-    if (images.length > 5) {
-      alert("يمكنك رفع حتى 5 صور فقط.");
-      return;
-    }
-
-    let message = `📦 منتج جديد:\n\nاسم المنتج: ${name}\nالسعر: ${price}\nالوصف: ${description}\nرقم التواصل: ${contact}\nعدد الصور: ${images.length}`;
+    let message = `📦 منتج جديد:\n\nاسم المنتج: ${name}\nالسعر: ${price}\nالوصف: ${description}\nرقم التواصل: ${contact}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/212600000000?text
+    window.open(`https://wa.me/212600000000?text=${encodedMessage}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
