@@ -19,14 +19,20 @@
       padding: 1rem;
       text-align: center;
     }
-    .map-section {
-      padding: 1rem;
-      text-align: center;
+    nav {
+      background: #004d40;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
     }
-    .map-section iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     .contact-icons {
       display: flex;
@@ -58,6 +64,9 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+    input[type="file"] {
+      border: none;
+    }
     button {
       background: #00695c;
       color: white;
@@ -78,10 +87,11 @@
   <h1>ترويج ماركت - Tarwij Market</h1>
 </header>
 
-<section class="map-section">
-  <h2>الخريطة التفاعلية</h2>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
-</section>
+<nav>
+  <a href="#">الرئيسية</a>
+  <a href="#">من نحن</a>
+  <a href="#">الاتصال بنا</a>
+</nav>
 
 <section class="contact-icons">
   <a href="https://wa.me/212600000000" title="واتساب">
@@ -107,6 +117,9 @@
     <label for="contact">رقم التواصل أو واتساب</label>
     <input type="text" id="contact" required>
 
+    <label for="images">صور المنتج (حتى 5 صور)</label>
+    <input type="file" id="images" accept="image/*" multiple required>
+
     <button type="submit">إرسال عبر واتساب</button>
   </form>
 </section>
@@ -114,16 +127,18 @@
 <script>
   document.getElementById('productForm').addEventListener('submit', function(e) {
     e.preventDefault();
+
     const name = document.getElementById('name').value;
     const price = document.getElementById('price').value;
     const description = document.getElementById('description').value;
     const contact = document.getElementById('contact').value;
+    const images = document.getElementById('images').files;
 
-    const message = `📦 منتج جديد:\n\nاسم المنتج: ${name}\nالسعر: ${price}\nالوصف: ${description}\nرقم التواصل: ${contact}`;
+    if (images.length > 5) {
+      alert("يمكنك رفع حتى 5 صور فقط.");
+      return;
+    }
+
+    let message = `📦 منتج جديد:\n\nاسم المنتج: ${name}\nالسعر: ${price}\nالوصف: ${description}\nرقم التواصل: ${contact}\nعدد الصور: ${images.length}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/212600000000?text=${encodedMessage}`, '_blank');
-  });
-</script>
-
-</body>
-</html>
+    window.open(`https://wa.me/212600000000?text
