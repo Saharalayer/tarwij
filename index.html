@@ -3,89 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> ترويج ماركت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <title>ترويج ماركت - Tarwij Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --main-color: #00695c;
+      --dark-color: #004d40;
+      --light-bg: #f9f9f9;
+      --white: #fff;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9f9f9;
+      background: var(--light-bg);
       color: #333;
     }
+
     header {
-      background: #00695c;
-      color: white;
+      background: var(--main-color);
+      color: var(--white);
       padding: 1rem;
       text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
+
     nav {
-      background: #004d40;
+      background: var(--dark-color);
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 0.5rem;
+      padding: 0.7rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     nav a {
-      color: white;
+      color: var(--white);
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
+
     nav a:hover {
-      text-decoration: underline;
+      color: #ffd700;
     }
+
     .contact-icons {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1rem;
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
+
     .contact-icons a img {
       width: 48px;
       height: 48px;
       transition: transform 0.3s ease;
     }
+
     .contact-icons a:hover img {
       transform: scale(1.1);
     }
+
     .form-section {
-      padding: 1rem;
-      background: #fff;
+      background: var(--white);
       max-width: 600px;
-      margin: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
     }
+
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+
     label {
       display: block;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       font-weight: bold;
     }
+
     input, textarea {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.7rem;
       margin-top: 0.3rem;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
+      font-size: 1rem;
     }
+
     button {
-      background: #00695c;
-      color: white;
-      padding: 0.7rem 1.5rem;
+      background: var(--main-color);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      width: 100%;
+      font-size: 1rem;
+      transition: background 0.3s ease;
     }
+
     button:hover {
-      background: #004d40;
+      background: var(--dark-color);
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-section {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>ترويج ماركت - Tarwij Market</h1>
+  ترويج ماركت - Tarwij Market
 </header>
 
 <nav>
@@ -139,11 +195,9 @@
 
     let message = `📦 منتج جديد:\n\nاسم المنتج: ${name}\nالسعر: ${price}\nالوصف: ${description}\nرقم التواصل: ${contact}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/212660799535?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/212600000000?text=${encodedMessage}`, '_blank');
   });
 </script>
 
 </body>
 </html>
-
-
