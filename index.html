@@ -39,11 +39,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-color: #00695c;
-      --dark-color: #004d40;
-      --light-bg: #f9f9f9;
+      --main-color: #1a5490;
+      --dark-color: #0f3d6b;
+      --light-bg: #f5f7fa;
       --white: #fff;
       --shadow: 0 2px 8px rgba(0,0,0,0.1);
+      --accent-color: #ff6b35;
     }
 
     * {
@@ -55,10 +56,10 @@
       margin: 0;
       background: var(--light-bg);
       background-image: 
-        radial-gradient(circle at 25% 25%, rgba(0, 105, 92, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(0, 77, 64, 0.1) 0%, transparent 50%),
-        linear-gradient(45deg, transparent 24%, rgba(0, 105, 92, 0.05) 25%, rgba(0, 105, 92, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 105, 92, 0.05) 75%, rgba(0, 105, 92, 0.05) 76%, transparent 77%),
-        linear-gradient(-45deg, transparent 24%, rgba(0, 77, 64, 0.05) 25%, rgba(0, 77, 64, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 77, 64, 0.05) 75%, rgba(0, 77, 64, 0.05) 76%, transparent 77%);
+        radial-gradient(circle at 25% 25%, rgba(26, 84, 144, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(15, 61, 107, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 24%, rgba(26, 84, 144, 0.05) 25%, rgba(26, 84, 144, 0.05) 26%, transparent 27%, transparent 74%, rgba(26, 84, 144, 0.05) 75%, rgba(26, 84, 144, 0.05) 76%, transparent 77%),
+        linear-gradient(-45deg, transparent 24%, rgba(15, 61, 107, 0.05) 25%, rgba(15, 61, 107, 0.05) 26%, transparent 27%, transparent 74%, rgba(15, 61, 107, 0.05) 75%, rgba(15, 61, 107, 0.05) 76%, transparent 77%);
       background-size: 50px 50px, 80px 80px, 20px 20px, 20px 20px;
       background-position: 0 0, 40px 40px, 0 0, 10px 10px;
       color: #333;
@@ -91,17 +92,19 @@
 
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: row;
+        gap: 0.8rem;
+        justify-content: center;
+        align-items: center;
       }
       
       .logo {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
       }
       
       header h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -309,11 +312,19 @@
       font-size: 1rem;
       font-family: 'Cairo', sans-serif;
       font-weight: bold;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     button:hover {
       background: var(--dark-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 84, 144, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
     }
   </style>
 </head>
